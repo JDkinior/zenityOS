@@ -20,7 +20,7 @@
             "request": "launch",
             "mainClass": "RelaxWindow",
             "projectName": "Zenity OS_4b54c826",
-            "vmArgs": "--module-path ${workspaceFolder}/lib --add-modules=javafx.controls,javafx.fxml"
+            "vmArgs": "--module-path C:/Users/invic/Documents/Java/Zenity OS/lib --add-modules=javafx.controls,javafx.fxml -Dprism.order=sw"
         }
     ]
 }

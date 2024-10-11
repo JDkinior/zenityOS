@@ -5,10 +5,14 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import javax.imageio.ImageIO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 
 
@@ -106,7 +110,7 @@ public class RelaxWindow extends JFrame {
         JButton app1Button = createAppButton("Icons/googleicon.png", "https://www.google.com");
         JButton app2Button = createAppButton("Icons/discordicon.png", "https://discord.com/");
         JButton app3Button = createAppButton("Icons/calcicon.png", "https://www.desmos.com/scientific?lang=es");
-
+        
         appPanel.add(app1Button);
         appPanel.add(app2Button);
         appPanel.add(app3Button);
@@ -153,6 +157,27 @@ public class RelaxWindow extends JFrame {
         setVisible(true);
     }
 
+    // Método para abrir una página web dentro de un WebView de JavaFX
+    private void openWebPageInWebView(String url) {
+        JFrame webFrame = new JFrame("Web Browser");
+        webFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        webFrame.setSize(1000, 600);
+
+        JFXPanel jfxPanel = new JFXPanel();
+        webFrame.add(jfxPanel);
+
+        Platform.runLater(() -> {
+            WebView webView = new WebView();
+            WebEngine webEngine = webView.getEngine();
+            webEngine.load(url);
+
+            Scene scene = new Scene(webView);
+            jfxPanel.setScene(scene);
+        });
+
+        webFrame.setVisible(true);
+    }
+
     // Método para crear un botón de aplicación con un icono y un hipervínculo
     private JButton createAppButton(String iconPath, String url) {
         JButton button = new JButton();
@@ -165,21 +190,18 @@ public class RelaxWindow extends JFrame {
         button.setOpaque(false); // Hacer transparente el botón
         button.setContentAreaFilled(false); // Hacer transparente el fondo del botón
         button.setBorderPainted(false); // Sin bordes
-
-        // Abrir el navegador cuando se presione el botón
+    
+        // Cargar la URL en un WebView de JavaFX al hacer clic en el botón
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI(url));
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                openWebPageInWebView(url); // Llamar al método para abrir la URL en WebView
             }
         });
-
+    
         return button;
     }
+    
 
     public static void main(String[] args) {
         new RelaxWindow();
