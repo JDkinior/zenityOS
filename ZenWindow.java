@@ -9,14 +9,14 @@ import javax.imageio.ImageIO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class RelaxWindow extends JFrame {
+public class ZenWindow extends JFrame {
 
     private JLabel timeLabel; // Etiqueta para la hora
     private JLabel dateLabel; // Etiqueta para la fecha
     private JButton moreAppsButton; // Botón de más aplicaciones
     private Font customFont; // Fuente personalizada
 
-    public RelaxWindow() {
+    public ZenWindow() {
         try {
             customFont = Font.createFont(Font.TRUETYPE_FONT, new File("Fonts/Jura-VariableFont_wght.ttf")).deriveFont(20f); // Ajusta el tamaño
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -41,7 +41,7 @@ public class RelaxWindow extends JFrame {
 
             {
                 try {
-                    backgroundImage = ImageIO.read(new File("Backgrounds/fondo2.png")); // Reemplaza con la ruta a tu imagen
+                    backgroundImage = ImageIO.read(new File("Backgrounds/fondozen.png")); // Reemplaza con la ruta a tu imagen
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -51,7 +51,7 @@ public class RelaxWindow extends JFrame {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 if (backgroundImage != null) {
-                    g.drawImage(backgroundImage, -30, -28, 2000, 1090, this); // Ajustar la imagen al tamaño de la ventana
+                    g.drawImage(backgroundImage, 0, 0, 1920, 1080, this); // Ajustar la imagen al tamaño de la ventana
                 }
             }
         };

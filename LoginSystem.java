@@ -228,6 +228,15 @@ relaxButton.addActionListener(new ActionListener() {
     }
 });
 
+// En la función performLogin dentro de LoginSystem.java
+zenButton.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        new ZenWindow(); // Abre la nueva ventana de Relax
+        dispose(); // Cierra la ventana actual
+    }
+});
+
 
             JPanel buttonPanel = new JPanel();
             buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));

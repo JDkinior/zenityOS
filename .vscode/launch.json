@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ZenWindow",
+            "request": "launch",
+            "mainClass": "ZenWindow",
+            "projectName": "Zenity OS_4b54c826"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
