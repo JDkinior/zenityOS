@@ -1,0 +1,26 @@
+Exception: Access Violation (code 0xc0000005) at address 00479AAA in thread C60
+Module: popcapgame1.exe
+Logical Address: 0001:00078AAA
+
+0012FD54 00479AAA 0001:00078AAA popcapgame1.exe
+Params: 0D14240C 00000000 01682000 0012FD88
+
+
+EAX:17915A88 EBX:07378210 ECX:1133C734 EDX:00002710 ESI:00000420 EDI:00000018
+EIP:00479AAA ESP:0012FD44  EBP:006F2B30
+CS:001B SS:0023 DS:0023 ES:0023 FS:003B GS:0000
+Flags:00010206
+
+Windows Ver: NT 6.1  Build 7600
+DDraw Ver: 
+DSound Ver: 
+
+Product: PlantsVsZombies
+Version: 1.2.0.1093
+Time Loaded: 01:01:46
+Fullscreen: No
+Primary ThreadId: C60
+Times Played: 0
+Build Num: 0
+Build Date: 
+

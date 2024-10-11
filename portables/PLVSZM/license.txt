@@ -1,0 +1,60 @@
+==============================================
+                    END USER LICENSE AGREEMENT
+==============================================
+
+TERMS USED IN THIS END USER LICENSE AGREEMENT("EULA").
+
+THE GAME	= Plants vs. Zombies
+THE COMPANY	= Cracked by MAGO NICO
+
+GENERAL PRODUCT LICENSE.
+
+This copy of THE GAME is intended solely 
+for your personal non-commercial home entertainment use.  You may 
+not decompile, reverse engineer, or disassemble THE GAME, except 
+as permitted by law.  THE COMPANY and its licensors retain all right, title 
+and interest in THE GAME including all intellectual 
+property rights embodied therein and derivatives thereof.  THE GAME, 
+including, without limitation, all code, data structures, images, sounds, 
+text, screens, game play, derivative works and all other elements of THE GAME 
+may not be copied, resold, rented, leased, distributed 
+(electronically or otherwise), used on a pay-per-play, coin-op or other 
+for-charge basis, or for any commercial purpose. Any permissions granted 
+here in are provided on a temporary basis and can be withdrawn by THE COMPANY 
+at any time.  All rights not expressly granted are reserved.
+
+ACCEPTANCE OF LICENSE TERMS.
+
+By acquiring and retaining THE GAME, you assent to the terms and 
+restrictions of this limited license. By installing, copying, or  otherwise 
+using THE GAME or any updates, you agree to be bound by the terms of 
+this EULA. If you  do not agree to the terms of this EULA, do not 
+install THE GAME.
+
+DISCLAIMER OF WARRANTY.
+
+THE GAME is provided "as is" without warranty of any kind. To the maximum 
+extent permitted by applicable law, THE COMPANY and its suppliers disclaim all 
+warranties, either express or implied, including, but not limited to, implied 
+warranties of merchantability and fitness for a particular purpose and any warranty 
+against infringement, with regard to THE GAME.
+
+LIMITATION OF LIABILITY.
+
+To the maximum extent permitted by applicable law, in no event shall THE COMPANY
+or its suppliers be liable for any special, incidental, indirect, or consequential 
+damages whatsoever (including, without limitation, damages for loss of business
+time, business profits, business information, or any other kind of loss) arising 
+out of the use of, or inability to use THE GAME, or the failure to provide 
+support services, even if THE COMPANY, or one of its supplies has been advised of 
+the possibility of such damages. THE COMPANY's entire liability shall not exceed 
+the price paid for THE GAME.  AnTiiviSta
+
+COPYRIGHT INFORMATION.
+
+THE GAME (c) THE COMPANY. All other copyrights and trademarks are 
+property of their respective owners.  All Rights Reserved.
+
+FMOD
+
+FMOD sound and music system, copyright(c) Firelight Technoliogies, Pty Ltd. 1994-2003

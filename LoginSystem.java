@@ -30,6 +30,7 @@ public class LoginSystem extends JFrame {
         setTitle("Login");
         setExtendedState(JFrame.MAXIMIZED_BOTH); // Ventana maximizada
         setResizable(false); // Evitar cambiar el tamaño de la ventana
+        setUndecorated(true); // Eliminar la barra de título
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
