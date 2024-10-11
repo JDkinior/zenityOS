@@ -9,6 +9,9 @@ import javax.imageio.ImageIO;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class RelaxWindow extends JFrame {
 
     private JLabel timeLabel; // Etiqueta para la hora
@@ -162,56 +165,108 @@ dateLabel.setHorizontalAlignment(SwingConstants.RIGHT); // Alinear a la derecha
         setVisible(true);
     }
 
-    // Método para mostrar un diálogo con más aplicaciones sin barra de título
-    private void showMoreAppsDialog() {
-        JDialog moreAppsDialog = new JDialog(this, "Más Aplicaciones", false);
-        moreAppsDialog.setUndecorated(true);
-        moreAppsDialog.setSize(500, 400);
-        moreAppsDialog.setBackground(new Color(0, 0, 0, 0));
-        Dimension parentSize = this.getSize();
-        Point parentLocation = this.getLocationOnScreen();
-    
-        Dimension dialogSize = moreAppsDialog.getSize();
-        int x = parentLocation.x + (parentSize.width - dialogSize.width) / 2 - 150;
-        int y = parentLocation.y + (parentSize.height - dialogSize.height) / 2 - 140;
-    
-        moreAppsDialog.setLocation(x, y);
-    
-        moreAppsDialog.addWindowFocusListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowLostFocus(java.awt.event.WindowEvent e) {
-                moreAppsDialog.setVisible(false);
-            }
-        });
-    
-        JPanel gridPanel = new JPanel() {
-            {
-                setOpaque(false);
-            }
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                Graphics2D g2d = (Graphics2D) g;
-                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                g2d.setColor(new Color(34, 34, 34, 235));
-                g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
-            }
-        };
-        gridPanel.setLayout(new GridLayout(3, 3, 10, 10));
-        gridPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-    
-        gridPanel.add(createAppButton("Icons/edgeicon.png", "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"));
-        gridPanel.add(createAppButton("Icons/PVZ.png", "portables/PLVSZM/PlantsVsZombies.exe"));
-        gridPanel.add(createAppButton("Icons/calcicon.png", "calc.exe"));
-        gridPanel.add(createAppButton("Icons/wordicon.png", "C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE"));
-        gridPanel.add(createAppButton("Icons/adminicon.png", "Taskmgr.exe"));
-        gridPanel.add(createAppButton("Icons/pcontrolicon.png", "control.exe"));
-        gridPanel.add(createAppButton("Icons/sfileicon.png", "explorer.exe"));
-    
-        moreAppsDialog.add(gridPanel);
-        moreAppsDialog.setVisible(true);
-        moreAppsDialog.repaint();
-    }
+    // Método para redimensionar el ícono
+private Icon resizeIcon(String iconPath, int width, int height) {
+    ImageIcon icon = new ImageIcon(iconPath);
+    Image img = icon.getImage();
+    Image resizedImage = img.getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH);
+    return new ImageIcon(resizedImage);
+}
+
+
+// Método para mostrar un diálogo con más aplicaciones sin barra de título
+// Método para mostrar un diálogo con más aplicaciones sin barra de título
+private void showMoreAppsDialog() {
+    JDialog moreAppsDialog = new JDialog(this, "Más Aplicaciones", false);
+    moreAppsDialog.setUndecorated(true);
+    moreAppsDialog.setSize(500, 400);
+    moreAppsDialog.setBackground(new Color(0, 0, 0, 0));
+    Dimension parentSize = this.getSize();
+    Point parentLocation = this.getLocationOnScreen();
+
+    Dimension dialogSize = moreAppsDialog.getSize();
+    int x = parentLocation.x + (parentSize.width - dialogSize.width) / 2 - 150;
+    int y = parentLocation.y + (parentSize.height - dialogSize.height) / 2 - 140;
+
+    moreAppsDialog.setLocation(x, y);
+
+    moreAppsDialog.addWindowFocusListener(new java.awt.event.WindowAdapter() {
+        @Override
+        public void windowLostFocus(java.awt.event.WindowEvent e) {
+            moreAppsDialog.setVisible(false);
+        }
+    });
+
+    JPanel gridPanel = new JPanel() {
+        {
+            setOpaque(false);
+        }
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.setColor(new Color(34, 34, 34, 235));
+            g2d.fillRoundRect(0, 0, getWidth(), getHeight(), 40, 40);
+        }
+    };
+    gridPanel.setLayout(new GridLayout(3, 3, 10, 10));
+    gridPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+
+    gridPanel.add(createAppButton("Icons/edgeicon.png", "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"));
+    gridPanel.add(createAppButton("Icons/PVZ.png", "portables/PLVSZM/PlantsVsZombies.exe"));
+    gridPanel.add(createAppButton("Icons/calcicon.png", "calc.exe"));
+    gridPanel.add(createAppButton("Icons/wordicon.png", "C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE"));
+    gridPanel.add(createAppButton("Icons/adminicon.png", "Taskmgr.exe"));
+    gridPanel.add(createAppButton("Icons/pcontrolicon.png", "control.exe"));
+    gridPanel.add(createAppButton("Icons/sfileicon.png", "explorer.exe"));
+
+    // Agregar un botón de apagado
+    JButton shutdownButton = new JButton();
+    shutdownButton.setIcon(resizeIcon("Icons/shicon.png", 40, 40)); // Ajustar tamaño deseado
+    shutdownButton.setPreferredSize(new Dimension(60, 60)); // Tamaño del botón
+    shutdownButton.setBorderPainted(false); // Sin bordes
+    shutdownButton.setContentAreaFilled(false); // Sin área de fondo
+    shutdownButton.setFocusPainted(false); // Sin borde de foco
+    shutdownButton.setOpaque(false);
+
+    // Agregar acción al botón de apagado
+    shutdownButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            System.exit(0); // Cerrar la aplicación
+        }
+    });
+
+    // Crear y configurar el JLabel para el texto "Apagar"
+    JLabel shutdownLabel = new JLabel("Apagar");
+    shutdownLabel.setFont(new Font("Arial", Font.PLAIN, 18)); // Establecer la fuente y el tamaño
+    shutdownLabel.setForeground(Color.WHITE); // Color del texto
+    shutdownLabel.setHorizontalAlignment(JLabel.CENTER); // Alinear el texto al centro
+
+    // Agregar acción al JLabel para cerrar la aplicación al hacer clic
+    shutdownLabel.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            System.exit(0); // Cerrar la aplicación
+        }
+    });
+
+    // Crear un panel para contener el botón de apagado y el texto
+    JPanel shutdownPanel = new JPanel(new BorderLayout());
+    shutdownPanel.setOpaque(false); // Hacer que el panel sea transparente
+    shutdownPanel.add(shutdownButton, BorderLayout.CENTER);
+    shutdownPanel.add(shutdownLabel, BorderLayout.SOUTH); // Añadir el texto debajo del botón
+
+    // Agregar el shutdownPanel al gridPanel
+    gridPanel.add(shutdownPanel); 
+
+    moreAppsDialog.add(gridPanel);
+    moreAppsDialog.setVisible(true);
+    moreAppsDialog.repaint();
+}
+
+
     
 
     // Método para crear un botón con un icono de aplicación

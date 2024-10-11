@@ -92,7 +92,7 @@ JPanel gradientPanel = new JPanel() {
             // Panel de contenido centrado
             panel = new JPanel();
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-            panel.setBorder(new EmptyBorder(270, 0, 0, 0)); // Ajustar margen superior para la imagen
+            panel.setBorder(new EmptyBorder(180, 0, 0, 0)); // Ajustar margen superior para la imagen
             panel.setOpaque(false); // Hacer el panel transparente
 
             // Panel para centrar el contenido
@@ -276,7 +276,7 @@ zenButton.addActionListener(new ActionListener() {
         button.setMaximumSize(new Dimension(200, 55));
         button.setOpaque(false);
         button.setBackground(new Color(0, 0, 0, 0));
-        button.setForeground(textColor);
+        button.setForeground(textColor);    
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         return button;
