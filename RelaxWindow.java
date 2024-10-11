@@ -180,7 +180,21 @@ private void showMoreAppsDialog() {
     JDialog moreAppsDialog = new JDialog(this, "Más Aplicaciones", false);
     moreAppsDialog.setUndecorated(true); // Eliminar la barra de título
     moreAppsDialog.setSize(500, 400);
-    moreAppsDialog.setLocationRelativeTo(this); // Centrar el diálogo
+    // Obtener el tamaño de la ventana principal
+    Dimension parentSize = this.getSize();
+    Point parentLocation = this.getLocationOnScreen();
+
+    // Obtener el tamaño del diálogo
+    Dimension dialogSize = moreAppsDialog.getSize();
+
+    // Calcular la posición en X para centrarlo horizontalmente
+    int x = parentLocation.x + (parentSize.width - dialogSize.width) / 2 - 20;
+
+    // Modificar manualmente la posición en Y (por ejemplo, ajustar 100 píxeles hacia arriba)
+    int y = parentLocation.y + (parentSize.height - dialogSize.height) / 2 - 240; // Ajusta -100 para subir
+
+    // Establecer la nueva posición del diálogo
+    moreAppsDialog.setLocation(x, y);
 
     // Cerrar el diálogo cuando se haga clic fuera de él
     moreAppsDialog.addWindowFocusListener(new java.awt.event.WindowAdapter() {
