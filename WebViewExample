@@ -1,0 +1,25 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+
+public class WebViewExample extends Application {
+    @Override
+    public void start(Stage primaryStage) {
+        WebView webView = new WebView();
+        webView.getEngine().load("https://www.google.com");
+
+        BorderPane root = new BorderPane();
+        root.setCenter(webView);
+
+        Scene scene = new Scene(root, 1024, 768);
+        primaryStage.setTitle("JavaFX WebView Example");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
