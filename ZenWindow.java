@@ -177,8 +177,8 @@ private void showMoreAppsDialog() {
     Point parentLocation = this.getLocationOnScreen();
 
     Dimension dialogSize = moreAppsDialog.getSize();
-    int x = parentLocation.x + (parentSize.width - dialogSize.width) / 2 - 150;
-    int y = parentLocation.y + (parentSize.height - dialogSize.height) / 2 - 140;
+    int x = parentLocation.x + (parentSize.width - dialogSize.width) / 2 - 125;
+    int y = parentLocation.y + (parentSize.height - dialogSize.height) / 2 - 190;
 
     moreAppsDialog.setLocation(x, y);
 
